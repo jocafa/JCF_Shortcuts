@@ -28,3 +28,14 @@ class JCF_OT_set_render_scale(bpy.types.Operator):
     def execute(self, context):
         bpy.context.scene.render.resolution_percentage = self.scale
         return {'FINISHED'}
+
+class JCF_OT_display_overlays(bpy.types.Operator):
+    """debug"""
+
+    bl_idname = "jcf.display_overlays"
+    bl_label = "Display Overlays"
+    bl_options = {'REGISTER'}
+
+    def execute(self, context):
+        print(context.space_data.overlay)
+        return {'FINISHED'}

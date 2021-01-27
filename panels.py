@@ -15,7 +15,37 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
         scene = context.scene
+        jcf_props = scene.jcf_props
+        overlay = context.space_data.overlay
 
+        # Viewport overlay shortcuts
+        box = layout.box()
+        row = box.row()
+        row.prop(
+            jcf_props,
+            "overlays_expanded",
+            icon='TRIA_DOWN' if jcf_props.overlays_expanded else 'TRIA_RIGHT',
+            icon_only=True,
+            emboss=False
+        )
+        row.label(text="Viewport Overlays", icon='OVERLAY')
+
+        if jcf_props.overlays_expanded:
+            row = box.row(align=True)
+            row.prop(overlay, "show_wireframes", text="")
+            row.prop(overlay, "wireframe_threshold", text="Wireframe")
+
+            row = box.row(align=True)
+            row.prop(overlay, "show_vertex_normals", text="", icon='NORMALS_VERTEX')
+            row.prop(overlay, "show_split_normals", text="", icon='NORMALS_VERTEX_FACE')
+            row.prop(overlay, "show_face_normals", text="", icon='NORMALS_FACE')
+            row.prop(overlay, "normals_length", text="Size")
+
+        #row.operator(ops.JCF_OT_display_overlays.bl_idname, text="do stuff")
+
+        layout.separator()
+
+        # Camera Shortcuts
         layout.label(text="Camera", icon='CAMERA_DATA')
         row = layout.row(align=True)
         row.prop(scene.camera.data.dof, "use_dof")

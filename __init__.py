@@ -19,17 +19,20 @@ from .panels import JCF_ShortcutsPanel
 #import operators
 from .operators import JCF_OT_set_render_size
 from .operators import JCF_OT_set_render_scale
+from .operators import JCF_OT_display_overlays
 
 #shared properties
 class JCF_Properties(bpy.types.PropertyGroup):
     """JCF Shared Properties"""
+    overlays_expanded: bpy.props.BoolProperty(default=True)
     foo: bpy.props.FloatProperty(name="foo", default=0.0, min=0.0, max=1.0)
 
 classes = (
     JCF_Properties,
     JCF_ShortcutsPanel,
     JCF_OT_set_render_size,
-    JCF_OT_set_render_scale
+    JCF_OT_set_render_scale,
+    JCF_OT_display_overlays
 )
 
 def register():
