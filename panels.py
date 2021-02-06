@@ -41,6 +41,9 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
             row.prop(overlay, "show_face_normals", text="", icon='NORMALS_FACE')
             row.prop(overlay, "normals_length", text="Size")
 
+            row = box.row(align=True)
+            row.prop(overlay, "show_face_orientation", text="Face Orientation")
+
         #row.operator(ops.JCF_OT_display_overlays.bl_idname, text="do stuff")
 
         layout.separator()
