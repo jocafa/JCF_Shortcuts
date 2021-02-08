@@ -11,15 +11,15 @@ bl_info = {
 
 import bpy
 
-from . import constants as const
-
 #import panels
 from .panels import JCF_ShortcutsPanel
 
 #import operators
-from .operators import JCF_OT_set_render_size
-from .operators import JCF_OT_set_render_scale
-from .operators import JCF_OT_display_overlays
+from .operators import (
+    JCF_OT_set_render_size,
+    JCF_OT_set_render_scale,
+    JCF_OT_display_overlays
+)
 
 #shared properties
 class JCF_Properties(bpy.types.PropertyGroup):
