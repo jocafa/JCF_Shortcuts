@@ -9,8 +9,12 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
     bl_idname = "JCF_PT_jcf_shortcuts"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_context = "objectmode"
+    #bl_context = "objectmode"
     bl_category = "Jocafa"
+
+    @classmethod
+    def poll(cls, context):
+        return True
 
     def draw(self, context):
         layout = self.layout
@@ -81,6 +85,11 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
         row=layout.row(align=True)
         for s in const.scales:
             row.operator(ops.JCF_OT_set_render_scale.bl_idname, text=s[0]).scale = s[1] * 100
+
+        # Compositing
+        row=layout.row(align=True)
+        row.prop(scene.render, "use_compositing")
+        row.prop(scene.render, "use_sequencer")
 
         layout.separator()
 
