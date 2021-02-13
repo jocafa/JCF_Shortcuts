@@ -73,7 +73,7 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
         layout.separator()
 
         layout.label(text="Resolution & Scale", icon='OUTPUT')
-        row=layout.row(align=True)
+        row = layout.row(align=True)
 
         # Quick list of resolutions
         i = 0
@@ -87,7 +87,7 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
             row.operator(ops.JCF_OT_set_render_scale.bl_idname, text=s[0]).scale = s[1] * 100
 
         # Compositing
-        row=layout.row(align=True)
+        row = layout.row(align=True)
         row.prop(scene.render, "use_compositing")
         row.prop(scene.render, "use_sequencer")
 
@@ -95,6 +95,13 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
 
         # HDRI Sun Aligner shortcuts
         layout.label(text="HDRI Sun Aligner", icon='LIGHT_SUN')
-        row=layout.row(align=True)
+        row = layout.row(align=True)
         row.operator('hdrisa.dummy', text="Sun Position")
         row.operator('hdrisa.rotate', text="Rotate Active")
+
+        layout.separator()
+
+        # Quick Objects
+        layout.label(text="Quick Objects", icon='MESH_MONKEY')
+        row = layout.row();
+        row.operator(ops.JCF_OT_add_tetrasphere.bl_idname)

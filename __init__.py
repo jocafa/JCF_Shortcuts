@@ -18,7 +18,8 @@ from .panels import JCF_ShortcutsPanel
 from .operators import (
     JCF_OT_set_render_size,
     JCF_OT_set_render_scale,
-    JCF_OT_display_overlays
+    JCF_OT_display_overlays,
+    JCF_OT_add_tetrasphere
 )
 
 #shared properties
@@ -32,7 +33,8 @@ classes = (
     JCF_ShortcutsPanel,
     JCF_OT_set_render_size,
     JCF_OT_set_render_scale,
-    JCF_OT_display_overlays
+    JCF_OT_display_overlays,
+    JCF_OT_add_tetrasphere
 )
 
 def register():
