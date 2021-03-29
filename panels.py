@@ -21,6 +21,7 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
         scene = context.scene
         jcf_props = scene.jcf_props
         overlay = context.space_data.overlay
+        shading = context.space_data.shading
 
         # Viewport overlay shortcuts
         box = layout.box()
@@ -47,6 +48,10 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
 
             row = box.row(align=True)
             row.prop(overlay, "show_face_orientation", text="Face Orientation")
+
+            row = box.row(align=True)
+            row.prop(shading, "show_xray", text="")
+            row.prop(shading, "xray_alpha", text="X-Ray")
 
         #row.operator(ops.JCF_OT_display_overlays.bl_idname, text="do stuff")
 
@@ -105,3 +110,10 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
         layout.label(text="Quick Objects", icon='MESH_MONKEY')
         row = layout.row();
         row.operator(ops.JCF_OT_add_tetrasphere.bl_idname)
+
+        layout.separator()
+
+        # DEBUGGING
+        layout.label(text="DEBUG", icon='TOOL_SETTINGS')
+        row = layout.row();
+        row.operator(ops.JCF_OT_debug.bl_idname)
