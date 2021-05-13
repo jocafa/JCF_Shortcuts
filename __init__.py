@@ -12,7 +12,10 @@ bl_info = {
 import bpy
 
 #import panels
-from .panels import JCF_ShortcutsPanel
+from .panels import (
+    JCF_ShortcutsPanel,
+    JCF_RenderShortcutsPanel
+)
 
 #import operators
 from .operators import (
@@ -32,6 +35,7 @@ class JCF_Properties(bpy.types.PropertyGroup):
 classes = (
     JCF_Properties,
     JCF_ShortcutsPanel,
+    JCF_RenderShortcutsPanel,
     JCF_OT_set_render_size,
     JCF_OT_set_render_scale,
     JCF_OT_set_render_samples,
