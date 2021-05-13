@@ -18,6 +18,7 @@ from .panels import JCF_ShortcutsPanel
 from .operators import (
     JCF_OT_set_render_size,
     JCF_OT_set_render_scale,
+    JCF_OT_set_render_samples,
     JCF_OT_add_tetrasphere,
     JCF_OT_debug
 )
@@ -33,6 +34,7 @@ classes = (
     JCF_ShortcutsPanel,
     JCF_OT_set_render_size,
     JCF_OT_set_render_scale,
+    JCF_OT_set_render_samples,
     JCF_OT_add_tetrasphere,
     JCF_OT_debug
 )

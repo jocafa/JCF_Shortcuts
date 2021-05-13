@@ -84,12 +84,17 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
         i = 0
         for res in const.resolutions:
             row.operator(ops.JCF_OT_set_render_size.bl_idname, text=res['name']).index = i
-            i+=1
+            i += 1
 
         # Quick list of scales
-        row=layout.row(align=True)
+        row = layout.row(align=True)
         for s in const.scales:
             row.operator(ops.JCF_OT_set_render_scale.bl_idname, text=s[0]).scale = s[1] * 100
+
+        row = layout.row(align=True)
+        for s in const.samples:
+            row.operator(ops.JCF_OT_set_render_samples.bl_idname, text=s['name']).samples = s['value']
+
 
         # Compositing
         row = layout.row(align=True)

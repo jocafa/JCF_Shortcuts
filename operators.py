@@ -41,6 +41,20 @@ class JCF_OT_set_render_scale(bpy.types.Operator):
         bpy.context.scene.render.resolution_percentage = self.scale
         return {'FINISHED'}
 
+class JCF_OT_set_render_samples(bpy.types.Operator):
+    """Set Cycles Render Samples"""
+
+    bl_idname = "jcf.set_render_samples"
+    bl_label = "Set Cycles Render Samples"
+    bl_options = {'REGISTER'}
+
+    samples: bpy.props.FloatProperty(default=128.0)
+
+    def execute(self, context):
+        bpy.context.scene.cycles.samples = self.samples
+        return {'FINISHED'}
+
+
 class JCF_OT_add_tetrasphere(bpy.types.Operator):
     """Create a subdivided tetrahedron sphere"""
 
