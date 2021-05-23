@@ -24,22 +24,6 @@ class JCF_RenderShortcutsPanel(bpy.types.Panel):
         scene = context.scene
         layout = self.layout
 
-        row = layout.row(align = True)
-
-        # Camera Shortcuts
-        layout.label(text="Camera", icon='CAMERA_DATA')
-        row = layout.row(align=True)
-        row.prop(scene.camera.data.dof, "use_dof", text="DOF")
-        row.prop(scene.camera_settings, "enable_ae", text="AE")
-        row.prop(scene.view_settings, "exposure")
-
-        row = layout.row(align=True)
-        row.prop(scene.camera.data, "lens", text="Lens", icon='DRIVER_ROTATIONAL_DIFFERENCE')
-        row.prop(scene.camera.data.dof, "focus_distance", text="Dist", icon='DRIVER_DISTANCE')
-        row.prop(scene.camera.data.dof, "aperture_fstop", text="F-Stop", icon='PROP_ON')
-
-        layout.separator()
-
         layout.label(text="Resolution, Scale, and Sampling", icon='OUTPUT')
         row = layout.row(align=True)
 
@@ -62,14 +46,6 @@ class JCF_RenderShortcutsPanel(bpy.types.Panel):
         row = layout.row(align=True)
         row.prop(scene.render, "use_compositing")
         row.prop(scene.render, "use_sequencer")
-
-        layout.separator()
-
-        # HDRI Sun Aligner shortcuts
-        layout.label(text="HDRI Sun Aligner", icon='LIGHT_SUN')
-        row = layout.row(align=True)
-        row.operator('hdrisa.dummy', text="Sun Position")
-        row.operator('hdrisa.rotate', text="Rotate Active")
 
 
 class JCF_ShortcutsPanel(bpy.types.Panel):
@@ -123,6 +99,28 @@ class JCF_ShortcutsPanel(bpy.types.Panel):
             row.prop(shading, "xray_alpha", text="X-Ray")
 
         layout.separator()
+
+        row = layout.row(align = True)
+
+        # Camera Shortcuts
+        layout.label(text="Camera", icon='CAMERA_DATA')
+        row = layout.row(align=True)
+        row.prop(scene.camera.data.dof, "use_dof", text="DOF")
+        row.prop(scene.camera_settings, "enable_ae", text="AE")
+        row.prop(scene.view_settings, "exposure")
+
+        row = layout.row(align=True)
+        row.prop(scene.camera.data, "lens", text="Lens", icon='DRIVER_ROTATIONAL_DIFFERENCE')
+        row.prop(scene.camera.data.dof, "focus_distance", text="Dist", icon='DRIVER_DISTANCE')
+        row.prop(scene.camera.data.dof, "aperture_fstop", text="F-Stop", icon='PROP_ON')
+
+        layout.separator()
+
+        # HDRI Sun Aligner shortcuts
+        layout.label(text="HDRI Sun Aligner", icon='LIGHT_SUN')
+        row = layout.row(align=True)
+        row.operator('hdrisa.dummy', text="Sun Position")
+        row.operator('hdrisa.rotate', text="Rotate Active")
 
         # Quick Objects
         layout.label(text="Quick Objects", icon='MESH_MONKEY')
